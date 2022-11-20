@@ -12,11 +12,11 @@ keymap.set("n", "<leader>wh", "<C-w>s")      -- split windows horizontally
 keymap.set("n", "<leader>we", "<C-w>=")      -- make split windows equal width
 keymap.set("n", "<leader>wx", ":close<CR>")  -- close current split window
 
---tab
-keymap.set("n", "<leader>to", ":tabnew<CR>")    -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>")  -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>")      -- go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>")      -- go to previous tab
+--tab or buffer
+keymap.set("n", "<leader>bo", ":tabnew<CR>")    -- open new tab
+keymap.set("n", "<leader>bx", ":tabclose<CR>")  -- close current tab
+keymap.set("n", "<leader>bn", ":tabn<CR>")      -- go to next tab
+keymap.set("n", "<leader>bp", ":tabp<CR>")      -- go to previous tab
 
 -- plugin keymaps
 

@@ -18,6 +18,9 @@ keymap.set("n", "<leader>bx", ":tabclose<CR>")  -- close current tab
 keymap.set("n", "<leader>bn", ":tabn<CR>")      -- go to next tab
 keymap.set("n", "<leader>bp", ":tabp<CR>")      -- go to previous tab
 
+-- replace
+vim.keymap.set('n', '<leader>r', ':%s/<pattern>/<target>/g')
+
 -- plugin keymaps
 
 -- vim-maximizer
@@ -33,3 +36,8 @@ keymap.set("n", "<leader>sl", "<cmd>Telescope live_grep<CR>")   -- search for a 
 keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>")     -- lists open buffers in current neovim instance 
 keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<CR>")
 keymap.set("n", "<leader>sc", "<cmd>Telescope grep_string<CR>") -- searches for the string under your cursor in your current working directory
+
+-- terminal
+keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>')
+keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
+keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')

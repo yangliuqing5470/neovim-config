@@ -9,6 +9,7 @@ git clone https://github.com/yangliuqing5470/neovim-config.git ~/.config/nvim
 
 1. cd ~/.config/nvim/lua/ylq/
 2. nvim plugins-setup.lua
-3. 保存一下，等待插件安装完成
-4. 执行 :checkhealth 缺少啥安装啥
+3. 保存一下，等待插件安装完成(或者执行 :PackerInstall)
+4. 执行 :LspInstall
+5. 执行 :checkhealth 缺少啥安装啥
 ```

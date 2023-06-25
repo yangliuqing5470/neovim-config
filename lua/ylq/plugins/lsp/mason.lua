@@ -23,7 +23,7 @@ mason_lspconfig.setup({
         "clangd",
         "dockerls",
         "jsonls",
-        "sumneko_lua",
+        "lua_ls",
         "pyright",
     }
 })

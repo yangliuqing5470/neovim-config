@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
   -- manageing & installing lsp servers
-  use 'williamboman/mason.nvim'
+  use {'williamboman/mason.nvim', run=':MasonUpdate'}
   use 'williamboman/mason-lspconfig.nvim'
   -- configuration lsp servers
   use 'neovim/nvim-lspconfig'

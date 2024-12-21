@@ -34,7 +34,8 @@ toggleterm.setup({
 	persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
 	direction = 'horizontal', -- 'horizontal' 'vertical' 'tab' 'float'
 	close_on_exit = true, -- close the terminal window when the process exits
-	shell = vim.o.shell, -- change the default shell
+	-- shell = vim.o.shell, -- change the default shell
+    shell = 'bash -i -l',
 	auto_scroll = true, -- automatically scroll to the bottom on terminal output
     -- This field is only relevant if direction is set to 'float'
 	float_opts = {

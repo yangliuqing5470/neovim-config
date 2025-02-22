@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   -- configuration lsp servers
   use 'neovim/nvim-lspconfig'
-  use ({'glepnir/lspsaga.nvim', branch='main'})
+  use ({'nvimdev/lspsaga.nvim', branch='main'})
   use 'onsails/lspkind.nvim'
   -- treesitter
   use ({

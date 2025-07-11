@@ -21,8 +21,8 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
     keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-    keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-    keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+    keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+    keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
     keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
     keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
     keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
@@ -33,7 +33,8 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 lspconfig['clangd'].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  filetypes = { "c", "cpp", "objc", "objcpp" }
 })
 
 lspconfig['pyright'].setup({
@@ -60,6 +61,21 @@ lspconfig['lua_ls'].setup({
 })
 
 lspconfig['dockerls'].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
+lspconfig['buf_ls'].setup({
+  on_init = function(client)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+  cmd = { 'buf', 'beta', 'lsp', '--timeout=0', '--log-format=text', '--debug' },
+  filetypes = { "proto" },
+  root_dir = function(fname)
+    local root = require("lspconfig.util").root_pattern("buf.yaml", ".git")(fname)
+        or vim.fn.getcwd(-1, -1)
+    return root
+  end,
   capabilities = capabilities,
   on_attach = on_attach
 })

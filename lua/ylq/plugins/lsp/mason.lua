@@ -25,5 +25,6 @@ mason_lspconfig.setup({
         "jsonls",
         "lua_ls",
         "pyright",
+        "buf_ls"
     }
 })

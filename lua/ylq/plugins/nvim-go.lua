@@ -1,4 +1,9 @@
-require("go").setup({})
+local status, nvim_go = pcall(require, "go")
+if not status then
+    return
+end
+
+nvim_go.setup({})
 
 -- Run gofmt + goimports on save
 

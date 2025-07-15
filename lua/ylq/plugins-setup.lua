@@ -76,6 +76,9 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   -- terminal
   use 'akinsho/toggleterm.nvim'
+  -- go.nvim
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommended if need floating window support
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

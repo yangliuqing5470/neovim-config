@@ -27,6 +27,10 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
     keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
     keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
+    if client.name == 'ruff' then
+      -- Disable hover in favor of Pyright
+      client.server_capabilities.hoverProvider = false
+    end
 end
 
 -- used to enable autocompletion
@@ -39,7 +43,24 @@ lspconfig['clangd'].setup({
 
 lspconfig['pyright'].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  settings = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
+})
+
+lspconfig['ruff'].setup({
+    capabilities=capabilities,
+    on_attach = on_attach
 })
 
 lspconfig['jsonls'].setup({

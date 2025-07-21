@@ -28,7 +28,9 @@ mason_lspconfig.setup({
         "ruff",
         "buf_ls",
         "gopls"
-    }
+    },
+    automatic_installation = true,
+    automatic_setup = false,
 })
 
 -- import mason-null-ls plugin safely
